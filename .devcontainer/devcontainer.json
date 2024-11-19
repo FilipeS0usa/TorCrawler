@@ -1,0 +1,60 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+  // Change to desired devcontainer name
+  "name": "DarkwebCrawler",
+  // You can change remoteUser to what ever you want, but be carefull with permissions.
+  "remoteUser": "vscode",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "devcontainer",
+  "workspaceFolder": "/workspace/",
+  "shutdownAction": "stopCompose",
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [8000, 3306],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // Put the commands you want to run inside .scripts/initialization.sh
+  // "postCreateCommand": "echo 'hello, world'",
+
+  // "remoteEnv": {
+  // 	"COMPOSE_PROFILES": "env"
+  // },
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "streetsidesoftware.code-spell-checker",
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "mongodb.mongodb-vscode",
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint",
+        "eamodio.gitlens",
+        "pflannery.vscode-versionlens"
+      ],
+      "settings": {
+        "files.eol": "\n",
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "python.analysis.autoImportCompletions": true,
+        "[python]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.organizeImports.ruff": true
+          }
+        }
+      }
+    }
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  }
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
