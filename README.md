@@ -19,4 +19,7 @@ darkweb.
 Also there can be other applications for this project that are still open for 
 exploration.
 
-
+## Academic Warning
+I would like to state, once again, that this project will serve as my academic 
+study, so I will have, in my docs directory a [study-log](docs/study-log/) 
+directory that will have all the things that I will be learning along the way.
