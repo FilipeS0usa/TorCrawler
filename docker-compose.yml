@@ -1,0 +1,32 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+      - db-gui
+
+  db:
+    image: postgres:17.1
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: secure_password
+      POSTGRES_USER: myuser
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./../db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/postgresql/data
+
+  db-gui:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@domain.com
+      PGADMIN_DEFAULT_PASSWORD: secure_password 
+    ports:
+      - '80:80'
+
+volumes:
+  db_data:
+
